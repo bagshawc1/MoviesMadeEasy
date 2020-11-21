@@ -1,0 +1,14 @@
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="icon" aria-label="icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{title}}</span>
+    <span class="spacer"></span>
+    <div *ngIf="!loggedIn">
+      <button mat-stroked-button class="raised-button" aria-label="login-button">
+        Login
+      </button>
+    </div>
+  </mat-toolbar>
+</p>

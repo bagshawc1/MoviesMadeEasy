@@ -8,13 +8,18 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { MatMenuModule} from '@angular/material/menu';
+import { AppRoutingModule } from './app-routing.module';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    TopBarComponent
+    TopBarComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,10 @@ import { CommonModule } from '@angular/common';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    CommonModule
+    CommonModule,
+    MatMenuModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

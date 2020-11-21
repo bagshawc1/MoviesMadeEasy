@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { MatMenuModule} from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     MatButtonModule,
     CommonModule,
     MatMenuModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: 'homepage', component: HomepageComponent},
   {path: 'movie-list', component: MovieListComponent},
   {path: '', redirectTo: '/homepage', pathMatch: 'full'}
-]
+];
 
 @NgModule({
   imports: [

@@ -4,11 +4,11 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu='matMenu'>
-      <button mat-menu-item>My Recommendations</button>
-      <button mat-menu-item>Watch Movies With Friends</button>
+      <button mat-menu-item routerLink="/my-recommendations">My Recommendations</button>
+      <button mat-menu-item routerLink="/watch-with-friends">Watch Movies With Friends</button>
       <button mat-menu-item routerLink="/movie-list">Movie List</button>
     </mat-menu>
-    <span>{{title}}</span>
+    <button class="home" mat-button routerLink="/homepage">{{title}}</button>
     <span class="spacer"></span>
     <div *ngIf="!loggedIn">
       <button mat-stroked-button class="raised-button" aria-label="login-button">

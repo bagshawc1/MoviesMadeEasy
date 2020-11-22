@@ -1,1 +1,16 @@
-<p>my-recommendations works!</p>
+<h2>My Recommended Movies:</h2>
+<mat-form-field>
+  <mat-label>User ID</mat-label>
+  <input matInput [(ngModel)]="userId" placeholder="">
+</mat-form-field>
+<button mat-raised-button class="findMovies" (click)="getRecommended()">Find Movies</button>
+<div *ngIf="movies.length > 0">
+  <div *ngFor="let movie of pageOfMovies">
+    {{movie['title']}}
+  </div>
+  <div class = "buttons">
+    <button mat-button (click)="decreasePageNum(); onChangePage()">Previous Page</button>
+    <button mat-button (click)="increasePageNum(); onChangePage()">Next Page</button>
+  </div>
+</div>
+

@@ -5,6 +5,7 @@ from flask import jsonify
 from flask_cors import CORS
 import json
 import pickle
+import time
 
 from fastai.tabular.all import *
 from fastai.collab import *
@@ -41,7 +42,7 @@ def hello():
 
   dls = CollabDataLoaders.from_df(ratings, item_name='title', bs=64)
 
-  userId = 400
+  userId = 2
   rows = []
   rating_ind = 0
 
@@ -61,7 +62,7 @@ def hello():
 
   preds, targs = loaded_learner.get_preds(dl=test_collab)
 
-  print(preds)
+  # print(preds)
 
   preds_and_titleInd = zip(preds, targs)
 
@@ -70,6 +71,8 @@ def hello():
 
   tuples = zip(*sorted_pairs)
   s_preds, s_titleInd = [list(tuple) for tuple in tuples]
+
+  print(s_titleInd[:10])
 
   top_movies = []
   for i in range(10):
@@ -81,33 +84,7 @@ def hello():
 
 @app.route("/movies", methods=['GET'])
 def get_movies():
-    return data
-
-@app.route("/recommended/<int:userId>", methods=['GET'])
-def recommended(userId):
-  val = {
-    "1": {
-     "movieId": 1,
-     "title": "Toy Story (1995)",
-     "genres": "Adventure|Animation|Children|Comedy|Fantasy",
-           },
-    "2": {
-      "movieId": 2,
-      "title": "Jumanji (1995)",
-      "genres": "Adventure|Children|Fantasy"
-    },
-    "3": {
-      "movieId": "3",
-      "title": "Grumpier Old Men (1995)",
-      "genres": "Comedy|Romance"
-    },
-    "4": {
-      "movieId": "4",
-      "title": "Waiting to Exhale (1995)",
-      "genres": "Comedy|Drama|Romance"
-    }
-  }
-  return val;
+  return data
 
 
 @app.route("/recommended/<ID>", methods=['GET'])
@@ -132,39 +109,40 @@ def recommended(ID):
   rows = []
   rating_ind = 0
 
-  user_watched = ratings[ratings["userId"] == userId]
+  user_watched = ratings[ratings["userId"] == int(userId)]
+  print(len(user_watched))
   user_watched_titles = user_watched.loc[:, "title"]
+  print(len(user_watched_titles))
   movie_list = np.unique(ratings[['title']])
 
   new_movies = np.setdiff1d(movie_list, user_watched_titles)
+  print(len(new_movies))
 
   for i in range(len(new_movies)):
     rows.append(dict({'userId': userId, 'title': new_movies[i], 'rating': rating_ind}))
-    rating_ind += 1
+    rating_ind += 1  
 
+  
   test_data = pd.DataFrame(rows)
+  print(test_data)
 
   test_collab = CollabDataLoaders.from_df(test_data, item_name='title', shuffle_train=False, bs=64, valid_pct=0.0,
                                           seed=42)
 
   preds, targs = loaded_learner.get_preds(dl=test_collab)
 
-  print(preds)
-
   preds_and_titleInd = zip(preds, targs)
 
   sorted_pairs = sorted(preds_and_titleInd)
-  sorted_preds = np.sort(preds)[::-1]
 
   tuples = zip(*sorted_pairs)
   s_preds, s_titleInd = [list(tuple) for tuple in tuples]
 
-  top_movies = []
+  top_movies = {}
   for i in range(10):
-    josn_movie = jsonify({'title': new_movies[s_titleInd[i]]})
-    top_movies.append(json_movie)
+    json_movie = {i: new_movies[s_titleInd[i]]}
+    top_movies.update(json_movie)
 
-  print(top_movies)
   return top_movies
 
 if __name__ == '__main__':

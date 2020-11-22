@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -88,7 +88,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "MoviesMadeEasy"
+  "defaultProject": "MoviesMadeEasy",
+  "cli": {
+    "analytics": "1056b68d-1961-4245-85d7-c6a961467089"
+  }
 }

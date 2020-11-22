@@ -2,8 +2,8 @@ from fastai.tabular.all import *
 from fastai.collab import *
 import pickle
 
-path = Path('ml-latest-small')
-model_path = Path('models')
+path = Path('Hack-Western-7/ml-latest-small')
+model_path = Path('Hack-Western-7')
 
 ratings = pd.read_csv(path/'ratings.csv')
 movies = pd.read_csv(path/'movies.csv')

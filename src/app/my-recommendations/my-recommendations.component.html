@@ -4,7 +4,7 @@
     <mat-label>User ID</mat-label>
     <input matInput [(ngModel)]="userId" placeholder="">
   </mat-form-field>
-  <button mat-raised-button class="findMovies" (click)="getRecommended()">Find Movies</button>
+  <button mat-raised-button class="findMovies" (click)="getRecommended(); onChangePage()" >Find Movies</button>
   <div *ngIf="movies.length > 0">
     <div *ngFor="let movie of pageOfMovies">
       {{movie}}

@@ -21,7 +21,6 @@ cors = CORS(app, resources={
 with open('movies.json') as json_file:
     data = json.load(json_file)
 
-
 @app.route("/", methods=['GET'])
 def hello():
   path = Path('Hack-Western-7/ml-latest-small')

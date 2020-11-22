@@ -19,6 +19,7 @@ export class MyRecommendationsComponent implements OnInit {
   getRecommended(): void{
     this.http.get(this.url + 'recommended/' + this.userId).toPromise()
       .then(data => {
+        console.log(data);
         for (const key in data){
           if (data.hasOwnProperty(key)){
             this.movies.push(data[key]);

@@ -1,3 +1,13 @@
 button.findMovies{
   margin-left: 5px;
 }
+div.centering {
+  text-align: center;
+
+}
+h2 {
+  padding: 20px;
+  font-size: 40px;
+  color: #323232;
+}
+

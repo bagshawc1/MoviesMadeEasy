@@ -1,8 +1,11 @@
-<div *ngFor="let movie of pageOfMovies">
-    {{movie['title']}}
-</div>
-<div class = "buttons">
-  <button mat-button (click)="decreasePageNum(); onChangePage()">Previous Page</button>
-  <button mat-button (click)="increasePageNum(); onChangePage()">Next Page</button>
+<div class="centering">
+  <h2>All Movies</h2>
+  <div *ngFor="let movie of pageOfMovies">
+      {{movie['title']}}
+  </div>
+  <div class = "buttons">
+    <button mat-button (click)="decreasePageNum(); onChangePage()">Previous Page</button>
+    <button mat-button (click)="increasePageNum(); onChangePage()">Next Page</button>
+  </div>
 </div>
 

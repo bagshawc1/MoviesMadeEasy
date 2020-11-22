@@ -1,5 +1,6 @@
 from fastai.tabular.all import *
 from fastai.collab import *
+import pickle
 
 path = Path('ml-latest-small')
 model_path = Path('models')
@@ -52,3 +53,10 @@ for i in range(10):
     top_movies.append(new_movies[s_titleInd[i]])
 
 print(top_movies)
+
+pickle.dump(top_movies, open('model.pkl', 'wb'))
+
+model = pickle.load(open('model.pkl', 'rb'))
+
+
+

@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { HttpClientModule} from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MyRecommendationsComponent } from './my-recommendations/my-recommendations.component';
+import { WatchWithFriendsComponent } from './watch-with-friends/watch-with-friends.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HomepageComponent,
     TopBarComponent,
     MovieListComponent,
+    MyRecommendationsComponent,
+    WatchWithFriendsComponent,
   ],
   imports: [
     BrowserModule,

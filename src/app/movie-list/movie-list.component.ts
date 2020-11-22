@@ -40,7 +40,9 @@ export class MovieListComponent implements OnInit {
     this.pageVal++;
   }
   decreasePageNum(): void{
-    this.pageVal--;
+    if (this.pageVal >= 1){
+      this.pageVal--;
+    }
   }
 
   constructor(private http: HttpClient) { }

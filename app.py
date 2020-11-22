@@ -83,6 +83,32 @@ def hello():
 def get_movies():
     return data
 
+@app.route("/recommended/<int:userId>", methods=['GET'])
+def recommended(userId):
+  val = {
+    "1": {
+     "movieId": 1,
+     "title": "Toy Story (1995)",
+     "genres": "Adventure|Animation|Children|Comedy|Fantasy",
+           },
+    "2": {
+      "movieId": 2,
+      "title": "Jumanji (1995)",
+      "genres": "Adventure|Children|Fantasy"
+    },
+    "3": {
+      "movieId": "3",
+      "title": "Grumpier Old Men (1995)",
+      "genres": "Comedy|Romance"
+    },
+    "4": {
+      "movieId": "4",
+      "title": "Waiting to Exhale (1995)",
+      "genres": "Comedy|Drama|Romance"
+    }
+  }
+  return val;
+
 
 @app.route("/recommended/<ID>", methods=['GET'])
 def recommended(ID):

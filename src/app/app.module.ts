@@ -15,6 +15,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MyRecommendationsComponent } from './my-recommendations/my-recommendations.component';
 import { WatchWithFriendsComponent } from './watch-with-friends/watch-with-friends.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { WatchWithFriendsComponent } from './watch-with-friends/watch-with-frien
     MatMenuModule,
     AppRoutingModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

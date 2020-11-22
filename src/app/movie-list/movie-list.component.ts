@@ -34,7 +34,6 @@ export class MovieListComponent implements OnInit {
       pageOfMovies.push(this.movies[i]);
     }
     this.pageOfMovies = pageOfMovies;
-    console.log(this.pageOfMovies);
   }
   increasePageNum(): void{
     this.pageVal++;

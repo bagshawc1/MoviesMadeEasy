@@ -1,4 +1,4 @@
-from __future__ import print_function # In python 2.7
+# from __future__ import print_function # In python 2.7
 from flask import Flask
 from flask_restful import Resource, Api
 from flask import jsonify
@@ -20,8 +20,6 @@ cors = CORS(app, resources={
 
 with open('movies.json') as json_file:
     data = json.load(json_file)
-    # for p in data:
-    #   print(data[p]['title'])
 
 
 @app.route("/", methods=['GET'])
@@ -120,9 +118,9 @@ def recommended(ID):
 
   for i in range(len(new_movies)):
     rows.append(dict({'userId': userId, 'title': new_movies[i], 'rating': rating_ind}))
-    rating_ind += 1  
+    rating_ind += 1
 
-  
+
   test_data = pd.DataFrame(rows)
   print(test_data)
 
@@ -145,5 +143,14 @@ def recommended(ID):
 
   return top_movies
 
+
+@app.route("/recommended/<firstID>/<secondID>/<thirdID>/<fourthID>", methods=['GET'])
+def recommended(firstID, secondID, thirdID, fourthID):
+  #code for multi user recommendations here
+  #will need a way to handle empty input, they will come though as an empty string
+  return
+
+
 if __name__ == '__main__':
     app.run(port=5002)
+

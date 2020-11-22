@@ -17,7 +17,8 @@ export class MyRecommendationsComponent implements OnInit {
   ngOnInit(): void {
   }
   getRecommended(): void{
-    this.http.get(this.url + 'recommended/' + this.userId).toPromise()
+    this.http.get(this.url + 'recommended/' + this.userId )
+      .toPromise()
       .then(data => {
         console.log(data);
         for (const key in data){

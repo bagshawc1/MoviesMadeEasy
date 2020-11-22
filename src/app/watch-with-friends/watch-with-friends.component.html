@@ -1,1 +1,28 @@
-<p>watch-with-friends works!</p>
+<h2>Group Recommended Movies:</h2>
+<mat-form-field class="mat-button">
+  <mat-label>First User ID</mat-label>
+  <input matInput [(ngModel)]="userID[0]" placeholder="">
+</mat-form-field>
+<mat-form-field class="mat-button">
+  <mat-label>Second User ID</mat-label>
+  <input matInput [(ngModel)]="userID[1]" placeholder="">
+</mat-form-field>
+<mat-form-field class="mat-button">
+  <mat-label>Third User ID</mat-label>
+  <input matInput [(ngModel)]="userID[2]" placeholder="">
+</mat-form-field>
+<mat-form-field class="mat-button">
+  <mat-label>Fourth User ID</mat-label>
+  <input matInput [(ngModel)]="userID[3]" placeholder="">
+</mat-form-field>
+<button mat-raised-button class="findMovies" (click)="getRecommended()">Find Movies</button>
+<div *ngIf="movies.length > 0">
+  <div *ngFor="let movie of pageOfMovies">
+    {{movie}}
+  </div>
+  <div class = "buttons">
+    <button mat-button (click)="decreasePageNum(); onChangePage()">Previous Page</button>
+    <button mat-button (click)="increasePageNum(); onChangePage()">Next Page</button>
+  </div>
+
+</div>
